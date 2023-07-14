@@ -9,6 +9,15 @@
                     <hr class="divider divider-light" />
                     <p class="text-white-75 mb-4">{{ course.description }}</p>
                     <a class="btn btn-light btn-xl" href="/academy/course/{{ course.id }}/subscribe">Inscribete $2000!</a>
+                    {% for message in messages %}
+                        {% if message.tags == "success" %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endif %}
+
+                        {% if message.tags == "error" %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>

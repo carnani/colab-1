@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.contrib.auth.models import Permission
 from academy.models import Teacher, Student, Course, Subject, Subscription
 
 class Command(BaseCommand):
@@ -50,6 +51,8 @@ class Command(BaseCommand):
             s.is_active = True
             s.set_password("123456")
             s.save()
+            perm = Permission.objects.get(name = "Can add subscription") #captura el permiso
+            s.user_permissions.add(perm) #asigna el permiso
 
             s = Student()
             s.username = "ramiro"
@@ -60,6 +63,10 @@ class Command(BaseCommand):
             s.is_active = True
             s.set_password("123456")
             s.save()
+            perm = Permission.objects.get(name = "Can add subscription") #captura el permiso
+            s.user_permissions.add(perm) #asigna el permiso
+
+
         elif mode == "clear":
             Student.objects.all().delete()
 

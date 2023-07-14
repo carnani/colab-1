@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-@7#vk8habcb!2vtdfdrc%j4sf-8h7w^@(x=dd*bjvmh037k8j9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-lokcito-colab-lvugjakoxsj.ws-us101.gitpod.io"]
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [os.environ.get("GITPOD_WORKSPACE_URL", "").replace("https://", "https://8000-")]
 
 
 # Application definition
