@@ -1,3 +1,5 @@
 from django.urls import path
-
-urlpatterns = []
+from .views import v_signup
+urlpatterns = [
+    path('signup', v_signup)
+]
